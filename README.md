@@ -61,7 +61,7 @@ if(a>b) mayor=a; //Una sentencia unica  no necesita corchetes
 ```c
   char my_variable = 'a'; //Caracter ASCII
   char my_variable[] = "Hello World';  // Arreglo de caracteres
-  char my_variable[11] = { 'H','e','l','l','o',' ','W','o','r','l','d','\0'}; //Misca declaración que la anterior con declaración completa
+  char my_variable[11] = { 'H','e','l','l','o',' ','W','o','r','l','d','\0'}; //Misma declaración que la anterior con declaración completa
 ```
 
 El tamaño de las variables es importante porque en un microcontrolador la memoria es limitada. Dependiendo del procesador los distintos tipos de variables pueden ser comunmente de 16, 32 o 64 bits. Como regla general se aplica:
@@ -76,7 +76,7 @@ El tamaño de las variables es importante porque en un microcontrolador la memor
 | float  | 32 bits  |
 | double | 64 bits  |
 | char  | 8 bits  |
-|   |   |
+
 
 ## Operadores 
 ###  Operadores Aritméticos Básicos
@@ -139,15 +139,208 @@ El tamaño de las variables es importante porque en un microcontrolador la memor
 //	Division compuesta "/="
 			a/=(b+5);
 ```
-###  
+
+## Sentencias basicas
+###  "if"
 ```c
+int a=5,  b=6,  mayor;
+
+if(a>b) //Si a mayor que b
+	mayor=a;
+
+if(a<b) //Si b mayor que a
+	mayor=b;
+
+if(a==b) //Si son iguales
+	mayor=b;
+
 
 ```
-###  
+###  "if else"
 ```c
+int a=5,  b=6,  mayor;
+
+if(a=>b) //Si a mayor que b
+	mayor=a;
+
+else      //Si b mayor que a
+	mayor=b;
+```
+###  "if else anidado"
+```c
+int a=5,  b=6,  mayor;
+
+if(a>b) //Si a mayor que b
+	mayor=a;
+
+else if(a<b) //Si b mayor que a
+	mayor=b;
+
+	else
+		mayor=a; //Son iguales tomo 				      //mayor a
+```
+###  Bucle "for"
+```c
+#define   REPETICIONES   50
+			
+unsigned int i;
+		
+for(i=0;  i<REPETICIONES;  i++){
+//Para i comenzando desde 0 y mientras que i sea menor que //REPETICIONES, incrementar i y hacer:
+
+	prender_led();    //Función ficticia
+	delay(1000);
+	apagar_led();     //Función ficticia
+}
 
 ```
-###  
+###  Bucle "while"
 ```c
+#define REPETICIONES 50
+			
+unsigned int i=0;		
+			
+while(i<REPETICIONES){
+//Mientras i sea menor que REPETICIONES ejecutar:
+
+	prender_led(); //Función ficticia
+	delay(1000);
+	apagar_led(); //Función ficticia
+	i++;
+}
 
 ```
+###  Bucle "do while"
+```c
+#define MAX 100
+			
+unsigned int temp=0;		
+			
+do{
+//Mientras temperatura sea menor que MAX
+
+	temp=leer_temperatura(); //Función ficticia
+	delay(100);
+
+}while(temp<MAX);
+
+```
+###  Bucle  while con "break"
+```c
+#define MAX 100			
+unsigned int temp=0;		
+			
+while(temp<MAX){
+//Mientras temperatura sea menor que MAX
+
+	temp=leer_temperatura(); //Función ficticia
+	delay(100);
+	//Si presiono el botón, salir del bucle
+	if(DigitalRead(boton)==HIGH) break;
+
+}
+
+```
+
+
+###  Sentencia "switch case"
+```c
+valor = random(0, 5);  //Num Aleatorio
+switch(valor){
+	case 1:
+		parpadear_led_azul();
+		break;
+	case 2:
+		parpadear_led_verde();
+		break;
+	case 3:
+		parpadear_led_rojo();
+		break;
+	default:
+		parpadear_led_blanco();
+		break;}
+
+```
+## Sketch Arduino
+
+### Funciones 
+```c
+int monitor(){  //Creamos una función llamada 
+		 //monitor que retorna un int
+	while(1){
+		if(digitalRead(boton_1) ==HIGH)return 1;
+		if(digitalRead(boton_2)==HIGH)return 2;
+		if(digitalRead(boton_3)==HIGH)return 3;		
+	}
+}
+```
+
+
+
+### "setup()"
+```c
+int buttonPin = 3;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+}
+
+void loop()
+{
+  // ...
+}
+
+```
+### "loop()"
+```c
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+}
+void loop()
+{
+  if (digitalRead(buttonPin) == HIGH)
+      Serial.write('H');
+  else
+      Serial.write('L');
+
+  delay(1000);
+}
+
+```
+### Estructura de un Sketch
+```c
+#include<math.h>
+
+#define pi 3.1415
+
+//Declaración variables globales
+unsigned int a,b=0;
+double j;
+char c='a';
+
+//Prototipo de funciones
+int leer_temp();  
+void parpadear_led_azul();
+	
+void setup()
+{
+  // ...
+}
+//Loop principal
+void loop()
+{
+  // ...
+}
+
+int leer_temp(){
+	// ...
+}
+void parpadear_led_azul(){
+	// ...
+}
+```
+
