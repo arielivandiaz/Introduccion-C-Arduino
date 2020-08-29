@@ -1,4 +1,4 @@
-# Introduccion-C-Arduino
+# Introducción C Arduino
 
 
 
@@ -12,8 +12,7 @@
 ### Comentario de varias lineas "/* */"
 ```c
 /** Esto es un comentario
-					de varias lineas **/
-
+de varias lineas **/
 ```
 ### Headers 
 ```c
@@ -34,9 +33,9 @@ b=5+a;
 ###   Limites de un bloque "{}"
 ```c
 if(a>b){  // Bloque de más  de una linea necesito corchetes
-			mayor=a;
-			b=0;
-		}
+		mayor=a;
+		b=0;
+	}
 
 if(a>b) mayor=a; //Una sentencia unica  no necesita corchetes
 ```
@@ -44,23 +43,23 @@ if(a>b) mayor=a; //Una sentencia unica  no necesita corchetes
 
 ### Números Enteros
 ```c
-  int my_variable = 8; //Número entero entre -32768 y 32768 en procesadores de 16 bits y -2147483648 y 2147483647 en procesadores de 32 bits
+  int my_variable = 8; 		//Número entero entre -32768 y 32768 en procesadores de 16 bits y -2147483648 y 2147483647 en procesadores de 32 bits
   unsigned int my_variable = 8; //Número entero entre 0 y 65535 en procesadores de 16 bits y 0 y 4294967295 en procesadores de 32 bits
-  short my_variable= 8; //Número entero entre -32768 y 32768
-  long my_variable = 8; //Número entero entre -2147483648 y 2147483647
+  short my_variable= 8; 	//Número entero entre -32768 y 32768
+  long my_variable = 8; 	//Número entero entre -2147483648 y 2147483647
   unsigned long my_variable = 8; //Número entero entre 0 y 4294967295
-  byte my_variable = 8; //Número entero entre 0 y 255
+  byte my_variable = 8;		 //Número entero entre 0 y 255
 ```
 
 ### Números Decimales
 ```c
-  float my_variable = 3.1415926; //Números decimales entre -3.4028235E+38 y +3.4028235E+38 con 4 bytes de precisión
+  float my_variable = 3.1415926;  //Números decimales entre -3.4028235E+38 y +3.4028235E+38 con 4 bytes de precisión
   double my_variable = 3.1415926; //Números decimales entre -3.4028235E+38 y +3.4028235E+38 con 8 bytes de precisión
 ```
 ### Caracteres
 ```c
-  char my_variable = 'a'; //Caracter ASCII
-  char my_variable[] = "Hello World';  // Arreglo de caracteres
+  char my_variable = 'a'; 		//Caracter ASCII
+  char my_variable[] = "Hello World";  	// Arreglo de caracteres
   char my_variable[11] = { 'H','e','l','l','o',' ','W','o','r','l','d','\0'}; //Misma declaración que la anterior con declaración completa
 ```
 
@@ -82,7 +81,7 @@ El tamaño de las variables es importante porque en un microcontrolador la memor
 ###  Operadores Aritméticos Básicos
 ```c
 //  Asignación "="
-				a = 5;
+			a = 5;
 //  Adición "+"
 			b =a + 5;
 //  Substracción "-"
@@ -162,7 +161,6 @@ int a=5,  b=6,  mayor;
 
 if(a=>b) //Si a mayor que b
 	mayor=a;
-
 else      //Si b mayor que a
 	mayor=b;
 ```
@@ -172,10 +170,8 @@ int a=5,  b=6,  mayor;
 
 if(a>b) //Si a mayor que b
 	mayor=a;
-
 else if(a<b) //Si b mayor que a
 	mayor=b;
-
 	else
 		mayor=a; //Son iguales tomo 				      //mayor a
 ```
@@ -266,7 +262,7 @@ switch(valor){
 ### Funciones 
 ```c
 int monitor(){  //Creamos una función llamada 
-		 //monitor que retorna un int
+		 //monitor que retorna un int
 	while(1){
 		if(digitalRead(boton_1) ==HIGH)return 1;
 		if(digitalRead(boton_2)==HIGH)return 2;
@@ -335,7 +331,7 @@ void loop()
 {
   // ...
 }
-
+// Declaración de funciones
 int leer_temp(){
 	// ...
 }
